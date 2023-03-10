@@ -1,16 +1,19 @@
 fun main(args: Array<String>) {
-    val a = intArrayOf(1, 2, 6, 3, 4, 5)
-    val b = intArrayOf(2, 4, 3, 1, 0)
-    val n = a.size
-    val m = b.size
-    findMissing(a, b, n, m)
+    val array1 = intArrayOf(1, 2, 6, 3, 4, 5)
+    val array2 = intArrayOf(2, 4, 3, 1, 0)
+    
+    compareArray(array1,array2, array1.size, array2.size)
+    val array3 = intArrayOf(2, 4, 4, 1, 0,9)
+    compareArray(array1,array3, array1.size, array3.size)
 }
 
-fun findMissing(a: IntArray, b: IntArray, n: Int, m: Int) {
+fun compareArray(a: IntArray, b: IntArray, n: Int, m: Int) {
     val s = HashSet<Int>()
+       // Store all elements of second array in a HashSet
     for (i in 0 until m)
         s.add(b[i])
+        // Print all elements of first array that are not present in hash table
     for (i in 0 until n)
         if (!s.contains(a[i]))
-            print("${a[i]} ")
+            println("Elements of array ${a[i]} ")
 }
